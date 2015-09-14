@@ -4,9 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Tutorial Jsp y Servlets</title>
+<title>Area Calculator</title>
 </head>
 <body>
-Página principal
+	<h1>Figure selection</h1>
+	<form method="post" action="SelectFigure.do">
+	<p>
+	Select figure:
+	<select name="figure">
+	<option value="triangle">Triangle</option>	
+	<option value="rectangle">Rectangle</option>
+	</select>
+	<br>
+	<br>
+	<br>
+	<input type="submit">			
+	</form>
+
 </body>
 </html>
