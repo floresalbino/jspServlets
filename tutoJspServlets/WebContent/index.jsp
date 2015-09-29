@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Figure selection</h1>
-	<form method="post" action="SelectFigure.do">
+	<form method="post" action="selectFigure.do">
 	<p>
 	Select figure:
 	<select name="figure">

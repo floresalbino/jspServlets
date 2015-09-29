@@ -23,12 +23,12 @@ public class FigureSelect extends HttpServlet{
 		FigureExpert expert = new FigureExpert();
 		Figure figureObject = (Figure) expert.getFigure(figureParameter);
 		
-		request.setAttribute("parameters", figureObject.getParameters());
+		request.setAttribute("objectParam", figureObject);
 		
-		RequestDispatcher view = request.getRequestDispatcher("figure.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("area_calculator.jsp");
 		view.forward(request, response);
 		
-	}	
+	}
 }
 
 

@@ -4,13 +4,14 @@ import com.tuto.java.interfaces.Figure;
 
 public class FigureExpert{
 	
-	public Object getFigure(String figure){
+	public Figure getFigure(String figure){
 	
 		Figure genericFigure= null;
 		
 		
 		if (figure.equalsIgnoreCase(EnumFigure.TRIANGLE.getName())){
-			genericFigure = new Triangle();			
+			
+			genericFigure = new Triangle(EnumFigure.TRIANGLE);			
 		}
 		return genericFigure;
 	}

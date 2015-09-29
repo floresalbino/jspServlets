@@ -48,10 +48,10 @@ public class Triangle implements Figure{
 	}	
 	@Override
 	public ArrayList<String> getParameters() {		
-		List<String> paramList = new ArrayList<String>();
-		paramList.add("base");
-		paramList.add("height");
+		ArrayList<String> paramList = new ArrayList<String>();
+		paramList.add("Base");
+		paramList.add("Height");
 		
-		return null;
+		return paramList;
 	}	
 }

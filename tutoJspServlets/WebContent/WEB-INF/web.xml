@@ -4,13 +4,13 @@
   
   
   <servlet-mapping>
-		<servlet-name>internalName</servlet-name>
-		<url-pattern>/helloWorld</url-pattern>
+		<servlet-name>figureSelection</servlet-name>
+		<url-pattern>/selectFigure.do</url-pattern>
   </servlet-mapping>
   
   <servlet>
-		<servlet-name>internalName</servlet-name>
-     	<servlet-class>com.tuto.java.servlet.controller.HelloWorld</servlet-class>
+		<servlet-name>figureSelection</servlet-name>
+     	<servlet-class>com.tuto.java.controller.FigureSelect</servlet-class>
   </servlet>
     
   <welcome-file-list>

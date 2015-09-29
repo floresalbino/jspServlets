@@ -5,7 +5,7 @@ public enum EnumFigure {
 	TRIANGLE("triangle"),
 	RECTANGLE("rectangle");
 	
-	private String name = null;
+	private String name = "";
 	
 	private EnumFigure(String name){
 		this.name = name;
