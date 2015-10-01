@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tuto.java.model.Figure;
+import com.tuto.java.model.FigureExpert;
+
 public class FigureSelect extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -17,10 +20,13 @@ public class FigureSelect extends HttpServlet{
 		
 		String name = request.getParameter("figure");
 		
+		FigureExpert expert = new FigureExpert();		
+		
+		Figure figure = expert.getFigure(name);
+		
 		PrintWriter writer = response.getWriter();
-		writer.println(name);
-		
-		
+		writer.println(figure.getName());
+			
 	}
 }
 
