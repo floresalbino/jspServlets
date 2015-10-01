@@ -12,6 +12,16 @@
 		<servlet-name>figureSelection</servlet-name>
      	<servlet-class>com.tuto.java.controller.FigureSelect</servlet-class>
   </servlet>
+  
+  <servlet-mapping>
+		<servlet-name>figureCalculate</servlet-name>
+		<url-pattern>/calculateArea.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+		<servlet-name>figureCalculate</servlet-name>
+     	<servlet-class>com.tuto.java.controller.FigureCalculate</servlet-class>
+  </servlet>
     
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>    

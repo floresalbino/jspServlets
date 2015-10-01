@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tuto.java.interfaces.Figure;
+import com.tuto.java.model.Figure;
 import com.tuto.java.model.FigureExpert;
 
 public class FigureSelect extends HttpServlet{
@@ -18,12 +18,12 @@ public class FigureSelect extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
-		String figureParameter = request.getParameter("figure");
+		String name = request.getParameter("figure");
 		
-		FigureExpert expert = new FigureExpert();
-		Figure figureObject = (Figure) expert.getFigure(figureParameter);
+		FigureExpert expert = new FigureExpert();		
+		Figure figure = expert.getFigure(name);
 		
-		request.setAttribute("objectParam", figureObject);
+		request.setAttribute("figureAttribute", figure);
 		
 		RequestDispatcher view = request.getRequestDispatcher("area_calculator.jsp");
 		view.forward(request, response);

@@ -3,7 +3,11 @@ package com.tuto.java.model;
 public enum EnumFigure {
 	
 	TRIANGLE("triangle"),
-	RECTANGLE("rectangle");
+	CIRCLE("circle"),
+	
+	BASE("Base:"),
+	HEIGHT("Height:"),
+	RADIUS("Radius:");
 	
 	private String name = "";
 	
@@ -11,7 +15,7 @@ public enum EnumFigure {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName(){
 		return name;
 	}
 }

@@ -1,57 +1,26 @@
 package com.tuto.java.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.tuto.java.interfaces.Figure;
+import java.util.HashMap;
 
 
-public class Triangle implements Figure{
+public class Triangle extends Figure{
 
-	public double base;
-	public double height;
-	public double area;
-	public EnumFigure name;
-	
-	
-	public Triangle(){
-	}	
-	public Triangle(EnumFigure name){		
-		this.name = name;
-	}
-	
-	public double getBase() {
-		return base;
-	}
-	public void setBase(double base) {
-		this.base = base;
-	}
-	public double getHeight() {
-		return height;
-	}
-	public void setHeight(double height) {
-		this.height = height;
-	}
-	@Override
-	public double getArea() {
-		return area;
-	}
-	public void setArea(double area) {
-		this.area = area;
-	}
-	@Override
-	public EnumFigure getName() {
-		return name;
-	}
-	public void setName(EnumFigure name) {
-		this.name = name;
-	}	
-	@Override
-	public ArrayList<String> getParameters() {		
-		ArrayList<String> paramList = new ArrayList<String>();
-		paramList.add("Base");
-		paramList.add("Height");
+	public Triangle(String name){	
 		
-		return paramList;
+		this.setName(name);
+		
+		HashMap<Enum<?>,Double> map = new HashMap<Enum<?>,Double>();
+		map.put(EnumFigure.BASE,0.0);
+		map.put(EnumFigure.HEIGHT,0.0);		
+		this.setParams(map);
+		
+		this.setFormula("Base * Height");
+
+	}
+	
+	@Override
+	public void calculateArea(){		
+		double area = this.getParams().get(EnumFigure.BASE) * this.getParams().get(EnumFigure.HEIGHT);		
+		setArea(area);
 	}	
 }

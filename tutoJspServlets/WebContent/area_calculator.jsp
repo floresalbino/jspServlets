@@ -2,37 +2,59 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ page import="java.util.*" %>
-<%@ page import="com.tuto.java.interfaces.Figure" %>
+<%@ page import="com.tuto.java.model.Figure" %>
+<%@ page import="com.tuto.java.model.EnumFigure" %>
+
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Area calculator</title>
+	<style>
+		.centerData {text-align:center;}
+		table, td, th{ 
+			margin: auto;			
+		}
+	</style>
 </head>
 <body>
-	<%
-		Figure fig = (Figure) request.getAttribute("objectParam");
-		ArrayList<String> params = fig.getParameters();
-	%>
-	<table>
-		<tr>
-			<% out.print("Calculate area of: " + fig.getName());%>
-		</tr>
-		<tr>
-			<td><img src="img/triangle.jpg"></td>
-		</tr>
-	<%
-		for (String attributeName : params){		
+	<div id="main" class="centerData">
+		<%
+			Figure figure = (Figure) request.getAttribute("figureAttribute");
+		    HashMap<Enum<?>, Double> params = figure.getParams();			
 		%>
-        <tr>
-        	<td>
-        	<%out.print(attributeName + ": ");%> <input type="text" name=<%out.print(attributeName.toLowerCase() + "_text_box");%>>        	      
-        	</td>             
-        </tr>
-    	<% 
-		}
-	%>
-	</table>
-	
+		<form method="post" action="calculateArea.do">
+				
+			<h2><% out.print(figure.getName().toUpperCase());%></h2>
+			<img src="img/<%out.print(figure.getName());%>.jpg">
+			<br>
+			<h3>Formula: <%out.print(figure.getFormula());%></h3>			
+			<table>	
+			<%
+				Iterator<HashMap.Entry<Enum<?>,Double>> it = params.entrySet().iterator();
+				while (it.hasNext()) {
+					HashMap.Entry<Enum<?>,Double> pair = (HashMap.Entry<Enum<?>,Double>)it.next();
+		        	%>
+			        <tr>
+			        	<td><%out.print(((EnumFigure)pair.getKey()).getName());%></td>
+			        	<td><input type="text" name=<%out.print(pair.getKey());%> value="<%out.print(figure.getParams().get((EnumFigure)pair.getKey()));%>"></td>             
+			        	<td>units</td>
+			        </tr>
+			    	<%
+		    	}				
+			%>
+			</table>
+				<br>				
+					<input type="submit" value="Calculate area">
+				<br>
+				<h1>Area: <input type="text" name="country" value="<%out.print(figure.getArea());%>" readonly> 
+				units&#178;</h1>
+			
+			<input type="hidden" name="figure" value=<%out.print(figure.getName());%>>
+			<br>
+			<br>			
+			<h2><a href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/index.jsp">Select another figure</a></h2>
+		</form>
+	</div>
 </body>
 </html>
