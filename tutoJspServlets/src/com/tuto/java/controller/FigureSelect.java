@@ -26,6 +26,7 @@ public class FigureSelect extends HttpServlet{
 		
 		PrintWriter writer = response.getWriter();
 		writer.println(figure.getName());
+		writer.println(figure.getFormula());
 			
 	}
 }

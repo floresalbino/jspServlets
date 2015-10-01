@@ -1,14 +1,10 @@
 package com.tuto.java.model;
 
-public class Figure {
+public abstract class Figure {
 		
 	private String name;
 	private double area;
 	private String formula;
-	
-	public Figure(String name){
-		this.name = name;
-	}
 	
 	public String getName() {
 		return name;
@@ -30,5 +26,7 @@ public class Figure {
 	public void setFormula(String formula) {
 		this.formula = formula;
 	}
+	
+	public abstract void calculateArea();
 	
 }
