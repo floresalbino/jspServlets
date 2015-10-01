@@ -3,15 +3,6 @@
   <display-name>tutoJspServlets</display-name>
   
   
-  <servlet-mapping>
-		<servlet-name>internalName</servlet-name>
-		<url-pattern>/helloWorld</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-		<servlet-name>internalName</servlet-name>
-     	<servlet-class>com.tuto.java.servlet.controller.HelloWorld</servlet-class>
-  </servlet>
     
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>    
