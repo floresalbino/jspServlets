@@ -21,6 +21,7 @@
 	<div id="main" class="centerData">
 		<%
 			Figure figure = (Figure) request.getAttribute("figureAttribute");
+			HashMap<Enum<?>, Double> params = figure.getParams();
 		%>
 		<form method="post" action="calculateArea.do">
 				
@@ -29,22 +30,20 @@
 			<img src="img/<%out.print(figure.getName());%>.jpg">
 			<br>
 			<h3>Formula: <%out.print(figure.getFormula());%></h3>
-			<table>	
+			<table>
+				<%
+				Iterator<HashMap.Entry<Enum<?>,Double>> it = params.entrySet().iterator();
+				while (it.hasNext()) {
+					HashMap.Entry<Enum<?>,Double> pair = (HashMap.Entry<Enum<?>,Double>)it.next();
+		        	%>
 			        <tr>
-			        	<td><%out.print(EnumFigure.BASE.getName());%></td>
-			        	<td><input type="text" name=<%out.print(EnumFigure.BASE);%> value="<%out.print(figure.getParams().get(EnumFigure.BASE));%>"></td>
-			        	<td>units</td>
+			        	<td><%=((EnumFigure)pair.getKey()).getName()%></td>
+			        	<td><input type="text" name=<%=pair.getKey()%> value="<%=figure.getParams().get((EnumFigure)pair.getKey())%>"></td>
+			        	<td>units</td>			        	
 			        </tr>
-			        <tr>
-			        	<td><%out.print(EnumFigure.HEIGHT.getName());%></td>
-			        	<td><input type="text" name=<%out.print(EnumFigure.HEIGHT);%> value="<%out.print(figure.getParams().get(EnumFigure.HEIGHT));%>"></td>
-			        	<td>units</td>
-			        </tr>
-			        <tr>
-			        	<td><%out.print(EnumFigure.RADIUS.getName());%></td>
-			        	<td><input type="text" name=<%out.print(EnumFigure.RADIUS);%> value="<%out.print(figure.getParams().get(EnumFigure.RADIUS));%>"></td>
-			        	<td>units</td>
-			        </tr>
+			    	<%
+		    	}				
+			%>
 			</table>			
 				<br>
 				<input type="submit" value="Calculate area">

@@ -12,7 +12,7 @@ public class Circle extends Figure{
 		
 		// Create a map of parameters needed to calculate area and initialize values. 
 		HashMap<Enum<?>,Double> map = new HashMap<Enum<?>,Double>();
-		map.put(EnumFigure.RADIUS,19.0);
+		map.put(EnumFigure.RADIUS,0.0);
 		this.setParams(map);		
 		
 	}

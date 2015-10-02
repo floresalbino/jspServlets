@@ -12,8 +12,8 @@ public class Triangle extends Figure{
 		
 		// Create a map of parameters needed to calculate area and initialize values.
 		HashMap<Enum<?>,Double> map = new HashMap<Enum<?>,Double>();
-		map.put(EnumFigure.BASE,6.0);
-		map.put(EnumFigure.HEIGHT,7.0);
+		map.put(EnumFigure.BASE,0.0);
+		map.put(EnumFigure.HEIGHT,0.0);
 		this.setParams(map);		
 
 	}

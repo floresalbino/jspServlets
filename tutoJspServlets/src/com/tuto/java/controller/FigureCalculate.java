@@ -2,6 +2,7 @@ package com.tuto.java.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tuto.java.model.EnumFigure;
 import com.tuto.java.model.Figure;
 import com.tuto.java.model.FigureExpert;
 
@@ -28,12 +28,17 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 		
 		HashMap<Enum<?>, Double> params = figure.getParams();		
 		
-		params.put(EnumFigure.BASE,Double.valueOf(request.getParameter(EnumFigure.BASE.toString())));
-		params.put(EnumFigure.HEIGHT,Double.valueOf(request.getParameter(EnumFigure.HEIGHT.toString())));
-		params.put(EnumFigure.RADIUS,Double.valueOf(request.getParameter(EnumFigure.RADIUS.toString())));
+		Iterator<HashMap.Entry<Enum<?>,Double>> it = params.entrySet().iterator();
+		
+		while (it.hasNext()){
+			
+			HashMap.Entry<Enum<?>,Double> pair = (HashMap.Entry<Enum<?>,Double>)it.next();
+			Enum<?> key = pair.getKey();
+			
+			params.put(key,Double.valueOf(request.getParameter(key.toString())));			
+    	}		
 		
 		figure.setParams(params);
-		
 		figure.calculateArea();
 		
 		request.setAttribute("figureAttribute", figure);
