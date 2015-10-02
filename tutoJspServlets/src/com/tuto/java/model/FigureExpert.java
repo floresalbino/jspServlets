@@ -13,11 +13,11 @@ public class FigureExpert{
 		switch (enumFig){
 			
 			case TRIANGLE:
-				figure = new Triangle("triangle");				
+				figure = new Triangle(enumFig.getName());				
 			break;
 			
 			case CIRCLE:
-				figure = new Circle("circle");				
+				figure = new Circle(enumFig.getName());				
 			break;
 			
 			default:
