@@ -3,8 +3,12 @@ package com.tuto.java.model;
 public enum EnumFigure {
 	
 	TRIANGLE("triangle"),
-	CIRCLE("circle");
+	CIRCLE("circle"),
 	
+	BASE("Base:"),
+	HEIGHT("Height:"),
+	
+	RADIUS("Radius:");
 	
 	private String name = "";
 	

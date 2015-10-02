@@ -23,6 +23,8 @@ public class FigureSelect extends HttpServlet{
 		FigureExpert expert = new FigureExpert();
 		Figure figure = expert.getFigure(name);
 		
+		figure.calculateArea();
+		
 		request.setAttribute("figureAttribute", figure);
 		
 		RequestDispatcher view = request.getRequestDispatcher("area_calculator.jsp");

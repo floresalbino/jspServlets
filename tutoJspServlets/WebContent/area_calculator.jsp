@@ -31,7 +31,7 @@
 			<h3>Formula: <%out.print(figure.getFormula());%></h3>			
 				<br>				
 				<br>
-				<h1>Area: <input type="text" name="country" value="<%out.print(figure.getArea());%>" readonly>units&#178;</h1>
+				<h1>Area: <input type="text" name="area" value="<%out.print(figure.getArea());%>" readonly>units&#178;</h1>
 			
 			<input type="hidden" name="figure" value=<%out.print(figure.getName());%>>
 			<br>
