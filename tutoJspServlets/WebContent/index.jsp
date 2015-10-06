@@ -9,7 +9,7 @@
 <body style="text-align:center">
 Página principal
 <br>
-<h2><a href="http://localhost:8990/tutoJspServlets/helloWorld">Hello World Servlet</a></h2>
-<h2><a href="http://localhost:8990/tutoJspServlets/hello_world.jsp">Hello World JSP</a></h2>
+<h2><a href="http://localhost:8080/tutoJspServlets/helloWorld">Hello World Servlet</a></h2>
+<h2><a href="http://localhost:8080/tutoJspServlets/hello_world.jsp">Hello World JSP</a></h2>
 </body>
 </html>
