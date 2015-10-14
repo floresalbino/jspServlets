@@ -38,7 +38,7 @@
 		        	%>
 			        <tr>
 			        	<td><%=((EnumFigure)pair.getKey()).getName()%></td>
-			        	<td><input type="text" name=<%=pair.getKey()%> value="<%=figure.getParams().get((EnumFigure)pair.getKey())%>"></td>
+			        	<td><input type="text" name=<%=pair.getKey()%> value="<%=pair.getValue()%>"></td>
 			        	<td>units</td>			        	
 			        </tr>
 			    	<%
