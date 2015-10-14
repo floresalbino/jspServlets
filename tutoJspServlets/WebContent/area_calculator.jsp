@@ -1,10 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 
-<%@ page import="java.util.*" %>
-<%@ page import="com.tuto.java.model.Figure" %>
-<%@ page import="com.tuto.java.model.EnumFigure" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 <head>
@@ -18,42 +17,36 @@
 	</style>
 </head>
 <body>
-	<div id="main" class="centerData">
-		<%
-			Figure figure = (Figure) request.getAttribute("figureAttribute");
-			HashMap<Enum<?>, Double> params = figure.getParams();
-		%>
+
+
+	<div id="main" class="centerData">		
 		<form method="post" action="calculateArea.do">
 				
-			<h2><% out.print(figure.getName().toUpperCase());%></h2>
+			<h2>${fn:toUpperCase(figureAttribute.name)}</h2>
 			
-			<img src="img/<%out.print(figure.getName());%>.jpg">
+			<img src="img/${figureAttribute.name}.jpg">
 			<br>
-			<h3>Formula: <%out.print(figure.getFormula());%></h3>
+			<h3>Formula: ${figureAttribute.formula}</h3>
+			
 			<table>
-				<%
-				Iterator<HashMap.Entry<Enum<?>,Double>> it = params.entrySet().iterator();
-				while (it.hasNext()) {
-					HashMap.Entry<Enum<?>,Double> pair = (HashMap.Entry<Enum<?>,Double>)it.next();
-		        	%>
-			        <tr>
-			        	<td><%=((EnumFigure)pair.getKey()).getName()%></td>
-			        	<td><input type="text" name=<%=pair.getKey()%> value="<%=figure.getParams().get((EnumFigure)pair.getKey())%>"></td>
-			        	<td>units</td>			        	
-			        </tr>
-			    	<%
-		    	}				
-			%>
+				<c:forEach var="mapa" items="${figureAttribute.params}">
+				 <tr>
+				 	<td> ${mapa.key.name}</td>
+				 	<td><input type="text" name="${mapa.key}" value="${mapa.value}"></td>
+			        <td>units</td>
+				 </tr>
+	    		</c:forEach>				
 			</table>			
+			
 				<br>
 				<input type="submit" value="Calculate area">
 				<br>
-				<h1>Area: <input type="text" name="area" value="<%out.print(figure.getArea());%>" readonly>units&#178;</h1>
+				<h1>Area: <input type="text" name="area" value="${figureAttribute.area}" readonly>units&#178;</h1>
 			
-			<input type="hidden" name="figure" value=<%out.print(figure.getName());%>>
+			<input type="hidden" name="figure" value="${figureAttribute.name}">
 			<br>
 			<br>			
-			<h2><a href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/index.jsp">Select another figure</a></h2>
+			<a href="${pageContext.request.contextPath}/index.jsp"><button type="button">Select another figure</button></a>			
 		</form>
 	</div>
 </body>
