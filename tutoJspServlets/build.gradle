@@ -18,6 +18,7 @@ dependencies {
 	
 	//Webjars dependencies	
 	compile 'org.webjars:bootstrap:3.3.4'
+	/*
 	compile 'org.webjars:font-awesome:4.5.0'
 	compile 'org.webjars:datatables-plugins:1.10.9-1'
 	compile 'org.webjars.bower:datatables:1.10.10'
@@ -27,7 +28,7 @@ dependencies {
 	compile 'org.webjars:amcharts:3.15.0'
         compile 'org.webjars.bower:angularjs:1.4.8'
         compile 'org.webjars.bower:jquery:2.1.4'
-	
+	*/
 }
 
 //For Eclipse IDE only
