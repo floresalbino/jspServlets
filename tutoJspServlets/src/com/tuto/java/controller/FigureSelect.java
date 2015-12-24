@@ -16,6 +16,15 @@ public class FigureSelect extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
+		try {
+			doPost(request, response);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		}
+	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		String name = request.getParameter("figure");
