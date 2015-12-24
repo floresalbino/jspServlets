@@ -53,9 +53,6 @@
 			<div class="container">
 		        <div class="row">
 		        	<div class="col-md-4 col-md-offset-4">
-<!-- 		        	<div class="page-header"><img src="img/shapes.png" class="img-responsive" alt="Smart"></div> -->
-<%--         			<img src="img/${figureAttribute.name}.jpg" class="img-responsive" alt="figure">                                           	 --%>
-		        	
 		        		<div class="login-panel panel panel-default">                	
 		                    <div class="panel-heading">
 		                        <h3 class="form-signin-heading">${fn:toUpperCase(figureAttribute.name)}</h3>                        
@@ -63,6 +60,7 @@
 		                    <div class="panel-body">
 		                            <fieldset>
 		                            	<div class="form-group">
+		                        			<img src="img/${figureAttribute.name}.jpg" class="img-responsive" alt="figure">                                           	
 		                                </div>
 		                                <div class="form-group">
 		                                	Formula: ${figureAttribute.formula}
