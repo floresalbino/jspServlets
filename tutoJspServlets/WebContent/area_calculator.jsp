@@ -60,7 +60,7 @@
 		                    <div class="panel-body">
 		                            <fieldset>
 		                            	<div class="form-group">
-		                        			<img src="img/${figureAttribute.name}.jpg" class="img-responsive" alt="figure">                                           	
+		                        			<img src="img/${figureAttribute.name}.png" alt="figure">                                           	
 		                                </div>
 		                                <div class="form-group">
 		                                	Formula: ${figureAttribute.formula}
